@@ -1,1 +1,1 @@
-const Discord = require("discord.js");
+const Discord = require("discord.js"); //Imports discord.js
