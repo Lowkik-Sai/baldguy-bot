@@ -1,1 +1,1 @@
-require('./src/bot.js');
+require('./src/Bot.js');
