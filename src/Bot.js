@@ -1,3 +1,1 @@
-const Discord = require("discord.js"); // :v
-// :alucrod:
-// mau pake handler sapa ini
+const Discord = require("discord.js");
