@@ -12,10 +12,9 @@
     "url": "git+https://github.com/zealcordNation/baldguy-bot.git"
   },
   "keywords": [
-    "discordbot",
     "zealcord",
-    "discord.js",
-    "js"
+    "discord-js",
+    "javascript"
   ],
   "author": "Zealcord",
   "license": "AGPL-3.0",
