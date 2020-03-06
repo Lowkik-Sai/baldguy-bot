@@ -24,7 +24,7 @@ class CommandHandler {
          */
         this.modules = new Collection();
         /**
-         * @type {import("discord.js").Collection<String, Object>}
+         * @type {import("discord.js").Collection<String, import("./Command")>}
          */
         this.commands = new Collection();
     }
@@ -64,6 +64,9 @@ class CommandHandler {
             const commandName = args.shift().toLocaleLowerCase();
 
             const command = this.commands.get(commandName) || this.commands.find(c => c.aliases.includes(commandName));
+            if (command.guildOnly && message.channel.type === "dm") return;
+            if (command.ownerOnly) return;
+
             try {
                 command.exec(this.client, message, args);
             } catch (e) {

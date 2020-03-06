@@ -1,12 +1,15 @@
 const { MessageEmbed } = require("discord.js");
+const Command = require("../../handler/Command");
 
 /**
- * @class EvalCommand
+ * @extends {Command}
  */
-class EvalCommand {
+class EvalCommand extends Command {
     constructor() {
+        super();
         this.name = "eval";
         this.aliases = ["e", "ev"];
+        this.ownerOnly = true;
         this.info = {
             desc: "Evaluate JS code",
             usage: "eval <code>"

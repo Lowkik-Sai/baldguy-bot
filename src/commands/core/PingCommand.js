@@ -1,8 +1,11 @@
+const Command = require("../../handler/Command");
+
 /**
- * @class PingCommand
+ * @extends {Command}
  */
-class PingCommand {
+class PingCommand extends Command {
     constructor() {
+        super();
         this.name = "ping";
         this.aliases = ["pong"];
         this.info = {
