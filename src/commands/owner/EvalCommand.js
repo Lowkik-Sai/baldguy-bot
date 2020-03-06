@@ -22,7 +22,6 @@ class EvalCommand extends Command {
      * @param {Array<String>} args
      */
     async exec(client, message, query) {
-        if (!["369507341973979136"].includes(message.author.id)) return;
         const runnedtimestamp = message.createdTimestamp;
         const msg = message;
         const bot = client;
