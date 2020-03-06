@@ -7,6 +7,9 @@ const { resolve } = require("path");
  * @extends {Client}
  */
 class BaldClient extends Client {
+    /**
+     * @param {import("discord.js").Client} opt
+     */
     constructor(opt) {
         super(opt);
         this.eventHandler = new EventHandler(this, resolve(__dirname, "..", "events"));
