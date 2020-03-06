@@ -106,3 +106,7 @@ dist
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
 package-lock.json
+
+# Glitch thing
+shrinkwarp.yaml
+watch.json

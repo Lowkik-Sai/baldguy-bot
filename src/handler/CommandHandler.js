@@ -53,7 +53,7 @@ class CommandHandler {
                 });
                 this.modules.set(dir, moduleConf);
             }
-            console.log("Loaded!");
+            // console.log("Loaded!");
         });
 
         this.client.on("message", message => {
