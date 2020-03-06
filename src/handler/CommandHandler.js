@@ -55,8 +55,9 @@ class CommandHandler {
             }
             console.log("Loaded!");
         });
+        
         this.client.on("message", message => {
-            const prefix = process.env.PREFIX;
+            const prefix = this.client.config.prefix;
 
             if (message.author.bot) return;
             if (!message.content.startsWith(prefix)) return;
@@ -65,7 +66,7 @@ class CommandHandler {
 
             const command = this.commands.get(commandName) || this.commands.find(c => c.aliases.includes(commandName));
             if (command.guildOnly && message.channel.type === "dm") return;
-            if (command.ownerOnly) return;
+            if (command.ownerOnly && !this.client.config.owners.includes(message.author.id)) return;
 
             try {
                 command.exec(this.client, message, args);
