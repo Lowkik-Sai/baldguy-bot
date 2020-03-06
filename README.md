@@ -1,5 +1,5 @@
 ## Bald Guy Bot
-Created by Zealcord Development. Released on Open Sourced Projects
+> Created by Zealcord Development. Released on Open Sourced Projects
 
 ### About
 ```
@@ -18,7 +18,7 @@ utf-8-validate@5.0.2,
 zlib-sync@0.1.6
 ```
 
-### Instalation
+### Installation
 ```
 $ npm install
 
@@ -26,14 +26,13 @@ $ node .
 ```
 
 ### Example
-```
+
 W.I.P
-```
 
-### Lisence
-We only use [AGPL v3.0](https://www.gnu.org/licenses/agpl-3.0.en.html) as licenses.
+### Contributing
 
-### FAQ
-```
-FAQ? Dude, this bot isn't published yet.
-```
+1.  Fork it!
+2.  Create your feature branch: `git checkout -b my-new-feature`
+3.  Commit your changes: `git commit -am "Add some feature"`
+4.  Push to the branch: `git push origin my-new-feature`
+5.  Submit a pull request :D
