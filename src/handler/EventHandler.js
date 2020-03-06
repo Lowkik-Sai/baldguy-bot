@@ -9,7 +9,13 @@ class EventHandler {
      * @param {String} path
      */
     constructor(client, path) {
+        /**
+         * @type {import("./BaldClient")}
+         */
         this.client = client;
+        /**
+         * @type {String}
+         */
         this.path = path;
     }
 
