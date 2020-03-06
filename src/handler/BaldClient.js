@@ -8,7 +8,7 @@ const { resolve } = require("path");
  */
 class BaldClient extends Client {
     /**
-     * @param {import("discord.js").Client} opt
+     * @param {import("discord.js").ClientOptions} opt
      */
     constructor(opt) {
         super(opt);
