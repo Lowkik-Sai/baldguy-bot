@@ -38,4 +38,6 @@ W.I.P
 4.  Push to the branch: `git push -u origin my-new-feature`
 5.  Submit a pull request :D
 
+
+
 ©️ 2020 [Zealcord Nation](https://zealcord.xyz)
