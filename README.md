@@ -1,11 +1,11 @@
 ## Bald Guy Bot
-> Created by Zealcord Development. Released on Open Sourced Projects
+> Bald Guy is multi-purposes Bot made by Zealcord's team, with public contribution projects.
 
 ### About
 ```
 Zealcord public Discord Bot contribution projects
 ```
-This is an official bot from Zealcord Nation. This bot dedicated for Open Source and our community. This bot written in [Discord.JS](https://discord.js.org/#/) version [12.0.1](https://discord.js.org/#/docs/main/stable/general/welcome).
+This Bot dedicated for Open Source of our community. Written in [Discord.JS](https://discord.js.org/#/) at version [12.0.1](https://discord.js.org/#/docs/main/stable/general/welcome).
 
 ### Required Module/Package
 ```
@@ -25,9 +25,10 @@ $ npm install
 $ node .
 ```
 
-### Example
-
+### Commands
+```
 W.I.P
+```
 
 ### Contributing
 
