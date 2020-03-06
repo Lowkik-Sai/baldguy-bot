@@ -40,4 +40,4 @@ W.I.P
 
 
 
-©️ 2020 [Zealcord Nation](https://zealcord.xyz)
+©️ 2020 **[Zealcord Nation](https://zealcord.xyz)**
