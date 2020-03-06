@@ -32,7 +32,7 @@ class CommandHandler {
     build() {
         readdir(this.path, (err, dirs) => {
             if (err) throw Error(err);
-            console.log(`Loading commands from ${dirs.length} categories.`);
+            console.log(`Loading commands from ${dirs.length} categories...`);
             for (const dir of dirs) {
                 const moduleDir = resolve(this.path, dir);
                 const moduleConf = {
@@ -44,7 +44,7 @@ class CommandHandler {
                     if (err) throw Error(err);
                     for (const file of files) {
                         const commandPath = resolve(moduleDir, file);
-                        const command = new (require(commandPath));
+                        const command = new(require(commandPath));
                         command.path = commandPath;
                         command.module = moduleConf;
                         moduleConf.commands.push(command);
@@ -55,7 +55,7 @@ class CommandHandler {
             }
             console.log("Loaded!");
         });
-        
+
         this.client.on("message", message => {
             const prefix = this.client.config.prefix;
 

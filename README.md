@@ -1,33 +1,39 @@
-## Baldguy Bot
-Created by Zealcord Nation Development. Released on Open Source
+## Bald Guy Bot
+Created by Zealcord Development. Released on Open Sourced Projects
 
 ### About
 ```
-Nih bot tentang apa, mau diapai nih bot
+Zealcord public Discord Bot contribution projects
 ```
-This is an official bot from Zealcord Nation development. This bot dedicated for Open Source and our community. This bot written in {{script_language}} version {{version_lang}}. This bot functional are {{Fungsional bot}} and very good for {{who?}}. 
+This is an official bot from Zealcord Nation. This bot dedicated for Open Source and our community. This bot written in [Discord.JS](https://discord.js.org/#/) version [12.0.1](https://discord.js.org/#/docs/main/stable/general/welcome).
 
 ### Required Module/Package
 ```
-Package yang lu pake
+"@discordjs/opus@0.1.0",
+"bufferutil@4.0.1",
+"discord.js@12.0.1",
+"dotenv@8.2.0",
+"erlpack@github:discordapp/erlpack",
+"utf-8-validate@5.0.2",
+"zlib-sync@0.1.6"
 ```
 
 ### Instalation
 ```
-Kalo bisa diinstall, gimana cara nya?
+$ npm install
+
+$ node .
 ```
 
 ### Example
 ```
-Contoh2, kayak command, contoh pemakain API, dsb.
+W.I.P
 ```
 
 ### Lisence
-```
-Kalo Lisence nya custom, tulis aja disini
-```
+We only use [AGPL v3.0](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/licensing-a-repository#disclaimer) as licenses.
 
 ### FAQ
 ```
-FAQ? Yes!
+FAQ? Dude, this bot isn't published yet.
 ```

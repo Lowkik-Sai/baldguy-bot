@@ -14,6 +14,7 @@ class BaldClient extends Client {
     constructor(opt) {
         super(opt);
         this.config = require("../config.json");
+        this.request = require("superagent");
         this.eventHandler = new EventHandler(this, resolve(__dirname, "..", "events"));
         this.commandHandler = new CommandHandler(this, resolve(__dirname, "..", "commands"));
     }

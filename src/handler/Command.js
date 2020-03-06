@@ -6,7 +6,7 @@ class Command {
         this.name = null;
         this.aliases = [];
         this.cooldown = 2;
-        this.guildOnly = true;
+        this.guildOnly = false;
         this.ownerOnly = false;
         this.info = {
             desc: null,

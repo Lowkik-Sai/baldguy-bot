@@ -9,7 +9,7 @@ class PingCommand extends Command {
         this.name = "ping";
         this.aliases = ["pong"];
         this.info = {
-            desc: "WebSocket ping.",
+            desc: "Check the WebSocket ping",
             usage: "ping"
         };
     }
@@ -20,7 +20,7 @@ class PingCommand extends Command {
      * @param {Array<String>} args
      */
     exec(client, message, args) {
-        message.channel.send(`Pong! \`${client.ws.ping}ms\``);
+        message.channel.send(`PONG! \`${client.ws.ping}ms\``);
     }
 }
 

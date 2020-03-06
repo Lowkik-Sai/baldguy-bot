@@ -23,9 +23,9 @@ class EventHandler {
         readdir(this.path, (err, files) => {
             if (err) throw Error(err);
             for (const file of files) {
-                const event = new (require(`${this.path}/${file}`))(this.client);
+                const event = new(require(`${this.path}/${file}`))(this.client);
                 this.client.on(event.name, event.exec);
-                console.info(`${file} loaded`);
+                console.info(`${file} events has loaded!`);
             }
         });
     }
