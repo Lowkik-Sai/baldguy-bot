@@ -1,7 +1,8 @@
 const { Client } = require("discord.js");
+const { resolve } = require("path");
+const Util = require("../handler/Util");
 const EventHandler = require("./EventHandler");
 const CommandHandler = require("./CommandHandler");
-const { resolve } = require("path");
 
 /**
  * @class BaldClient
@@ -15,6 +16,7 @@ class BaldClient extends Client {
         super(opt);
         this.config = require("../config.json");
         this.request = require("superagent");
+        this.util = new Util(this);
         this.eventHandler = new EventHandler(this, resolve(__dirname, "..", "events"));
         this.commandHandler = new CommandHandler(this, resolve(__dirname, "..", "commands"));
     }
