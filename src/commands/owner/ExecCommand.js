@@ -22,7 +22,7 @@ class ExecCommand {
      * @param {import("discord.js").Message} message
      * @param {Array<String>} args
      */
-    exec(client, message, args) {
+    async exec(client, message, args) {
         const m  = await message.channel.send(`❯_ ${  args.join(' ')}`);
         exec(args.join(" "), async (e, stdout, stderr) => {
             if (e) return m.edit(`\`\`\`js\n${e.message}\`\`\``);

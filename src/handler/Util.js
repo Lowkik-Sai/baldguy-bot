@@ -13,7 +13,7 @@ class Util {
             let isGif = guild.iconURL().split(".");
             isGif = isGif[isGif.length - 1] === "gif";
             return guild.iconURL({ format: isGif ? 'gif' : 'png' });
-        };
+        }
 
         this.bytesToSize = (bytes) => {
             const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
@@ -32,13 +32,13 @@ class Util {
             seconds = parseInt(seconds % 60);
 
             if (days) {
-                return `​${days}D ${hours}H ${minutes}M ${seconds}S`​;
+                return days + "D " + hours + "H " + minutes + "M " + seconds + "S";
             } else if (hours) {
-                return `​${hours}H ${minutes}M ${seconds}S`​;
+                return hours + "H " + minutes + "M " + seconds + "S";
             } else if (minutes) {
-                return `​${minutes}M ${seconds}S`​;
+                return minutes + "M " + seconds + "S";
             } else {
-                return `​${seconds}S`​;
+                return seconds + "S";
             }
         }
     };

@@ -1,6 +1,6 @@
-var express = require("express");
-var https = require("http");
-var app = express();
+const express = require("express");
+const https = require("http");
+const app = express();
 
 // Ping The Apps.
 app.use(express.static("public"));
