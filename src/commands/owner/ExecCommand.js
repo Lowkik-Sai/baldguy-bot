@@ -6,7 +6,7 @@ const Command = require("../../handler/Command");
  */
 class ExecCommand {
     constructor() {
-        this.name = null;
+        this.name = "exec";
         this.aliases = ['$', 'execute'];
         this.cooldown = 2;
         this.guildOnly = false;
