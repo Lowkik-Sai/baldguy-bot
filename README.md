@@ -1,5 +1,8 @@
 <h1 align="center">Bald Guy Bot</h1>
 <p align="center">
+  <a href="https://zealcord.xyz/discord/">
+    <img alt="Discord server" src="https://discordapp.com/api/guilds/332877090003091456/embed.png">
+  </a>
   <a href="#">
     <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/zealcordNation/baldguy-bot.svg">
   </a>
