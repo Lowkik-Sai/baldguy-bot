@@ -24,7 +24,7 @@ class AvatarCommand extends Command {
     let user = message.mentions.users.first(); // Mentioned user
     if (!user) user = message.author; // If there is no user mention it will return message.author as a user
     
-    let image = user.displayAvatarURL; // Get image URL
+    let image = user.avatarURL; // Get image URL
     let embed = new Discord.RichEmbed()
         .setColor("#0000000") // Set color (If you don't have ideas or preference, use RANDOM for random colors)
         .setImage(image) // Set image in embed
