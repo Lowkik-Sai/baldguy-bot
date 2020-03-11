@@ -21,10 +21,10 @@ class StatsCommand extends Command {
      * @param {Array<String>} args
      */
     exec(client, message, args) {
-        let owner = [];
-        let uptime = "";
+        const owner = [];
+        const uptime = "";
         require("child_process").exec("uptime -p", (_, out) => {
-            client.config.owners.forEach(own => { const fetch = client.users.resolve(own); owner.push(fetch) });
+            client.config.owners.forEach(own => { const fetch = client.users.resolve(own); owner.push(fetch); });
             const memory = client.util.bytesToSize(process.memoryUsage().heapUsed);
             const total = client.util.bytesToSize(require("os").totalmem);
             const embed = new MessageEmbed()
