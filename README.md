@@ -1,5 +1,19 @@
-## Bald Guy Bot
-> Bald Guy is multi-purposes Bot made by Zealcord's team, with public contribution projects.
+<h1 align="center">Bald Guy Bot</h1>
+<p align="center">
+  <a href="#">
+    <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/zealcordNation/baldguy-bot.svg">
+  </a>
+  <a href='https://github.com/zealcordNation/baldguy-bot/blob/master/LICENSE.md'>
+    <img alt="GitHub" src="https://img.shields.io/github/license/zealcordNation/baldguy-bot.svg">
+  </a>
+  <a href='https://github.com/zealcordNation/baldguy-bot/blob/master/package.json'>
+    <img alt="GitHub package.json version" src="https://img.shields.io/github/package-json/v/zealcordNation/baldguy-bot.svg">
+  </a>
+  <a href='https://github.com/zealcordNation/baldguy-bot/workflows/'>
+    <img alt="Workflows" src="https://github.com/zealcordNation/baldguy-bot/workflows/Node.js%20CI/badge.svg">
+  </a>
+</p>
+<p align="center"> Bald Guy is multi-purposes Bot made by Zealcord's team, with public contribution projects.</p>
 
 ### About
 ```
