@@ -1,4 +1,5 @@
 const Command = require("../../handler/Command");
+const { MessageEmbed } = require("discord.js");
 
 /**
  * @extends {Command}
@@ -21,12 +22,10 @@ class AvatarCommand extends Command {
      */
     exec(client, message, args) {
 
-    let user = message.mentions.users.first(); // Mentioned user
-    if (!user) user = message.author; // If there is no user mention it will return message.author as a user
-    
-    let image = user.avatarURL; // Get image URL
-    let embed = new Discord.RichEmbed()
-        .setColor("#0000000") // Set color (If you don't have ideas or preference, use RANDOM for random colors)
+    const user = message.mentions.users.first() || message.guild.members.cache.get(args[0]) || message.author;
+    const image = client.util.getAvatar(user); // Get image URL
+    let embed = new MessageEmbed()
+        .setColor("RANDOM") // Set color (If you don't have ideas or preference, use RANDOM for random colors)
         .setImage(image) // Set image in embed
         message.channel.send(embed); // Send embed
 }
