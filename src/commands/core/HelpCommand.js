@@ -21,15 +21,15 @@ class HelpCommand extends Command {
         .setColor("RANDOM")
         .setAuthor(
           `${client.user.username}'s commands list`,
-          client.user.displayAvatarURL({ format: "png", size: "512" })
+          client.user.displayAvatarURL({ format: "png", size: 512 })
         )
         .setThumbnail(
-          client.user.displayAvatarURL({ format: "png", size: "512" })
+          client.user.displayAvatarURL({ format: "png", size: 512 })
         )
         .setDescription(
           `Use ${prefix}help [command] to get more info on a specific command, for example: ${prefix}help ping`
         );
-      for (let mod of modules) {
+      for (const mod of modules) {
         embed.addField(
           `${toTitleCase(mod.name)}`,
           mod.commands
@@ -43,15 +43,15 @@ class HelpCommand extends Command {
       const cmd = args[0];
       if (
         client.commandHandler.commands.has(cmd) ||
-        client.commandHandler.commands.find(x => cmd.includes(x.aliases))
+        client.commandHandler.commands.find(x=> x.aliases.includes(cmd))
       ) {
-        const command = client.commandHandler.commands.get(cmd);
+        const command = client.commandHandler.commands.get(cmd) || client.commandHandler.commands.find(x=> x.aliases.includes(cmd));
         const embed = new MessageEmbed()
           .setColor("RANDOM")
-          .setTitle(`Command info for ${command.name}`)
+          .setTitle(`📁 Command info for ${command.name}`)
           .setDescription(command.info.desc)
-          .addField(`Aliases`, command.aliases.map(x => `\`${x}\``).join(", "))
-          .addField(`Usage`, `\`${command.info.usage}\``)
+          .addField(`Aliases`, command.aliases.length > 0 ? command.aliases.map(x => `\`${x}\``).join(", ") : `No aliases`)
+          .addField(`Usage`, `\`${command.info.usage === undefined ? "No usage" : command.info.usage}\``)
           .addField(
             `Cooldown`,
             `${
@@ -84,7 +84,7 @@ class HelpCommand extends Command {
 
       if (
         !client.commandHandler.commands.has(cmd) ||
-        !client.commandHandler.commands.find(x => cmd.includes(x.aliases))
+        !client.commandHandler.commands.find(x=> x.aliases.includes(cmd))
       ) {
         const embed = new MessageEmbed()
           .setColor("#FF1000")
@@ -104,7 +104,7 @@ function toTitleCase(text) {
   let newstr = text.split(" ");
   for (let i = 0; i < newstr.length; i++) {
     if (newstr[i] === "") continue;
-    let copy = newstr[i].substring(1).toLowerCase();
+    const copy = newstr[i].substring(1).toLowerCase();
     newstr[i] = newstr[i][0].toUpperCase() + copy;
   }
   newstr = newstr.join(" ");
