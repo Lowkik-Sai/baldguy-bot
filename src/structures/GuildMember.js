@@ -8,5 +8,5 @@ Structures.extend('GuildMember', GuildMember => {
         }
     }
 
-    return GuildMember;
+    return ExtendedMember;
 });
