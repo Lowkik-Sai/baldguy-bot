@@ -1,6 +1,5 @@
 const Command = require("../../structures/BaseCommand");
 const { MessageEmbed } = require('discord.js');
-const { get } = require('node-superfetch');
 const cheerio = require('cheerio');
 const BASE_URL = "https://nanime.yt/";
 
@@ -21,7 +20,7 @@ class NanimeCommand extends Command {
         if (isNaN(parseInt(args[0]))) args[0] = "";
         if (parseInt(args[0]) > 257) args[0] = "257";
         const msg = await message.channel.send("Fetching anime...");
-        const { body } = await get(`${BASE_URL}?page=${args[0]}`);
+        const { body } = await client.request.get(`${BASE_URL}?page=${args[0]}`);
         const $ = await cheerio.load(body);
         const titles = [];
         const status = [];
