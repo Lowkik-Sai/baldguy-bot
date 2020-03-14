@@ -22,7 +22,7 @@ class AvatarCommand extends Command {
      */
     async exec(client, message, args) {
         const user = message.mentions.users.first() || message.guild.members.cache.get(args[0]) || await message.guild.members.fetch({ query: args.join(" "), limit: 10 }) || message.author;
-        const image = client.util.getAvatar(user);
+        const image = client.util.getAvatar(user instanceof require('discord.js').Collection ? user.size !== 0 ? user.first() : user : user);
         const embed = new MessageEmbed()
         .setColor("RANDOM")
         .setImage(image);
