@@ -17,11 +17,11 @@ class NanimeCommand extends Command {
 
 	async exec(client, message, args) {
     try {
-        if (isNaN(parseInt(args[0]))) args[0] = "";
+        if (isNaN(parseInt(args[0]))) args[0] = "1";
         if (parseInt(args[0]) > 257) args[0] = "257";
         const msg = await message.channel.send("Fetching anime...");
-        const { body } = await client.request.get(`${BASE_URL}?page=${args[0]}`);
-        const $ = await cheerio.load(body);
+        const { text } = await client.request.get(`${BASE_URL}?page=${args[0]}`);
+        const $ = await cheerio.load(text);
         const titles = [];
         const status = [];
         const episodes = [];
@@ -65,7 +65,6 @@ class NanimeCommand extends Command {
         titles.forEach((_title, i) => {
             _title = _title.replace("Nonotn", "").replace("Nonton", "");
             const title = _title.split(" ");
-            console.log(title);
             title[1] = "";
             title.pop();
             title.pop();
