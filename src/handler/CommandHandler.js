@@ -66,7 +66,7 @@ class CommandHandler {
 
             const command = this.commands.get(commandName) || this.commands.find(c => c.aliases.includes(commandName));
             if (command.guildOnly && message.channel.type === "dm") return;
-            if (command.ownerOnly && !this.client.config.owners.includes(message.author.id)) return;
+            if (command.ownerOnly && !message.author.isDev) return;
 
             try {
                 command.exec(this.client, message, args);

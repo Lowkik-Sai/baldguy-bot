@@ -4,6 +4,10 @@ const Util = require("../handler/Util");
 const EventHandler = require("./EventHandler");
 const CommandHandler = require("./CommandHandler");
 
+// Extending Discord.js Class
+require("../structures/GuildMember");
+require("../structures/User");
+
 /**
  * @class BaldClient
  * @extends {Client}
