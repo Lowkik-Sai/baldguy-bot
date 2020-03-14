@@ -7,4 +7,6 @@ Structures.extend('User', User => {
             this.isDev = client.config.owners.includes(this.id);
         }
     }
+
+    return User;
 });
