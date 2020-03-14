@@ -8,5 +8,5 @@ Structures.extend('User', User => {
         }
     }
 
-    return User;
+    return ExtendedUser;
 });
