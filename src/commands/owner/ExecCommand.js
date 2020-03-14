@@ -1,5 +1,5 @@
 const { exec } = require('child_process');
-const Command = require("../../handler/Command");
+const Command = require("../../structures/BaseCommand");
 
 /**
  * @extends {Command}

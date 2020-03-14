@@ -1,4 +1,4 @@
-const Command = require("../../handler/Command");
+const Command = require("../../structures/BaseCommand");
 const { MessageEmbed } = require('discord.js');
 const { get } = require('node-superfetch');
 const cheerio = require('cheerio');

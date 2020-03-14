@@ -1,4 +1,4 @@
-const Command = require("../../handler/Command");
+const Command = require("../../structures/BaseCommand");
 
 /**
  * @extends {Command}
