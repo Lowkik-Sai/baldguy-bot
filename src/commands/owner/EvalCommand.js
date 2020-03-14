@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js");
-const Command = require("../../handler/Command");
+const Command = require("../../structures/BaseCommand");
 
 /**
  * @extends {Command}

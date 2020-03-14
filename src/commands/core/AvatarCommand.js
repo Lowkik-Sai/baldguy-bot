@@ -1,4 +1,4 @@
-const Command = require("../../handler/Command");
+const Command = require("../../structures/BaseCommand");
 const { MessageEmbed } = require("discord.js");
 
 /**
@@ -20,14 +20,13 @@ class AvatarCommand extends Command {
      * @param {import("discord.js").Message} message
      * @param {Array<String>} args
      */
-    exec(client, message, args) {
-
-    const user = message.mentions.users.first() || message.guild.members.cache.get(args[0]) || message.author;
-    const image = client.util.getAvatar(user);
-    const embed = new MessageEmbed()
-    .setColor("RANDOM")
-    .setImage(image);
-    message.channel.send(embed);
+    async exec(client, message, args) {
+        const user = message.mentions.users.first() || message.guild.members.cache.get(args[0]) || await message.guild.members.fetch({ query: args.join(" "), limit: 10 }) || message.author;
+        const image = client.util.getAvatar(user);
+        const embed = new MessageEmbed()
+        .setColor("RANDOM")
+        .setImage(image);
+        message.channel.send(embed);
 }
 }
 
