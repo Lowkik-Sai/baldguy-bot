@@ -41,5 +41,5 @@ Structures.extend("Message", Message => {
     }
 
     return ExtendedMessage;
-
+    
 });
