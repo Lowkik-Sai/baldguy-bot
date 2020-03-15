@@ -10,9 +10,7 @@ class StatsCommand extends Command {
         this.name = "stats";
         this.aliases = ['statistic', 'stat'];
         this.info = {
-            desc: "Show my statistic",
-            usage: "stats",
-            example: "stats"
+            desc: "Show my statistic"
         };
         this.requiredPermissions = [];
     }

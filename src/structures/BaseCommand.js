@@ -19,19 +19,21 @@ class Command {
     }
 
     /**
-     * @param {import("../../handler/BaldClient")} client
+     * @param {import("../handler/BaldClient")} client
      * @param {import("discord.js").Message} message
      * @param {Array<String>} args
      */
     exec(client, message, args) {}
 
-    reload() {
+    /**
+     * 
+     * @param {import("../handler/BaldClient")} client 
+     */
+    reload(client) {
         delete require.cache[require.resolve(`${this.path}`)];
-        const newCMD = new (require(`${this.path}`).default)();
-        this.client.commands.get(this.help.name).run = newCMD.run;
-        this.client.commands.get(this.help.name).help = newCMD.help;
-        this.client.commands.get(this.help.name).conf = newCMD.conf;
-        return this.client.commands.get(this.help.name);
+        const newCMD = new (require(this.path))();
+        client.commandHandler.commands.get(this.name).exec = newCMD.exec;
+        return client.commandHandler.commands.get(this.name);
     }
 }
 
