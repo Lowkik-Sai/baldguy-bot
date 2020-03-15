@@ -7,7 +7,7 @@ Structures.extend("Message", Message => {
         constructor(client, data, channel) {
             super(client, data, channel);
             const queries = this.content.slice(prefix.length).trim().split(/ +/g);
-            const command = queries.shift().toLocaleLowerCase() || null;
+            const command = this.content.startsWith(prefix) ? queries.shift().toLocaleLowerCase() || null : null;
             this.command = command;
             this.args = [];
             this.flag = [];
