@@ -68,6 +68,7 @@ class EvalCommand extends Command {
                 message.channel.send(isURL ? result : `\`\`\`js\n${result}\n\`\`\``);
                 return;
             }
+            
             embed.setDescription(isURL ? result : `\`\`\`js\n${result}\n\`\`\``);
         } catch (e) {
             const error = this.clean(e);

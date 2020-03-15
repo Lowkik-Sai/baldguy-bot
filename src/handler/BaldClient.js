@@ -8,6 +8,7 @@ const CommandHandler = require("./CommandHandler");
 require("../structures/GuildMember");
 require("../structures/User");
 require("../structures/Guild");
+require("../structures/Message");
 
 /**
  * @class BaldClient

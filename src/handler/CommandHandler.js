@@ -65,6 +65,7 @@ class CommandHandler {
             const commandName = args.shift().toLocaleLowerCase();
 
             const command = this.commands.get(commandName) || this.commands.find(c => c.aliases.includes(commandName));
+            if (!command) return;
             if (command.guildOnly && message.channel.type === "dm") return;
             if (command.ownerOnly && !message.author.isDev) return;
 
