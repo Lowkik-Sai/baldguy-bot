@@ -8,7 +8,7 @@ class HelpCommand extends Command {
       this.aliases = ["h"];
       this.cooldown = 2;
       this.info = {
-        desc: "show this bot command list or view the command details",
+        desc: "Show this bot command list or view the command details",
         usage: "help [command]",
         example: "help avatar"
       };
@@ -53,8 +53,8 @@ class HelpCommand extends Command {
             .setTitle(`📁 Command info for ${command.name}`)
             .setDescription(command.info.desc)
             .addField(`Aliases`, command.aliases.length > 0 ? command.aliases.map(x => `\`${x}\``).join(", ") : `No aliases`)
-            .addField(`Usage`, `\`${command.info.usage === undefined ? "No usage" : command.info.usage}\``)
-            .addField(`Example`, `\`${command.info.example === undefined ? "No example" : `${message.guild.prefix}${command.info.example}`}\``)
+            .addField(`Usage`, `\`${command.info.usage === undefined ? "No usage provided" : command.info.usage}\``)
+            .addField(`Example`, `\`${command.info.example === undefined ? "No example provided" : `${message.guild.prefix}${command.info.example}`}\``)
             .addField(
               `Cooldown`,
               `${
