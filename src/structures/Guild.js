@@ -11,7 +11,7 @@ Structures.extend('Guild', Guild => {
                 const member = this.members.cache.filter(r => r.displayName.toLowerCase().includes(name && name.toLowerCase()));
                 if (member) return member.first();
                 else return undefined;
-            }
+            };
         }
     }
 
