@@ -11,16 +11,19 @@ class NanimeCommand extends Command {
         this.ownerOnly = false;
         this.info = {
             desc: "Check the nanime feed",
-            usage: "nanime [page]"
+            usage: "nanime [page]",
+            example: "nanime 2"
         };
+        this.requiredPermissions = [];
 	}
 
 	async exec(client, message, args) {
     try {
         if (isNaN(parseInt(args[0]))) args[0] = "1";
+        if (parseInt(args[0]) == 0) args[0] = ""
         if (parseInt(args[0]) > 257) args[0] = "257";
         const msg = await message.channel.send("Fetching anime...");
-        const { text } = await client.request.get(`${BASE_URL}?page=${args[0]}`);
+        const { text } = await client.request.get(`${BASE_URL}${args[0] !== "" ? `?page=${args[0]}` : ""}`);
         const $ = await cheerio.load(text);
         const titles = [];
         const status = [];

@@ -13,8 +13,10 @@ class ExecCommand {
         this.ownerOnly = true;
         this.info = {
             desc: "Execute a bash command",
-            usage: "exec <command>"
+            usage: "exec <command>",
+            example: "exec refresh"
         };
+        this.requiredPermissions = [];
     }
 
     /**
@@ -23,6 +25,7 @@ class ExecCommand {
      * @param {Array<String>} args
      */
     async exec(client, message, args) {
+        if (!args.join(" ")) return message.argsMissing(message, "No command provided!", this);
         const m  = await message.channel.send(`❯_ ${  args.join(' ')}`);
         exec(args.join(" "), async (e, stdout, stderr) => {
             if (e) return m.edit(`\`\`\`js\n${e.message}\`\`\``);

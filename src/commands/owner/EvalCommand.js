@@ -12,8 +12,10 @@ class EvalCommand extends Command {
         this.ownerOnly = true;
         this.info = {
             desc: "Evaluate to the Bot",
-            usage: "eval <code>"
+            usage: "eval <code>",
+            example: "eval client"
         };
+        this.requiredPermissions = [];
     }
 
     /**
@@ -35,7 +37,7 @@ class EvalCommand extends Command {
 
         try {
             const code = args.join(" ");
-            if (!code) return;
+            if (!code) return message.argsMissing(message, "No code provided!", this);
             let evaled;
 
             if (flags.includes("async")) evaled = await eval(`(async () => { ${code} })()`);
@@ -68,7 +70,7 @@ class EvalCommand extends Command {
                 message.channel.send(isURL ? result : `\`\`\`js\n${result}\n\`\`\``);
                 return;
             }
-            
+
             embed.setDescription(isURL ? result : `\`\`\`js\n${result}\n\`\`\``);
         } catch (e) {
             const error = this.clean(e);

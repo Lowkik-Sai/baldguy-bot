@@ -10,10 +10,12 @@ class Command {
         this.ownerOnly = false;
         this.info = {
             desc: null,
-            usage: null
+            usage: null,
+            example: null
         };
         this.path = null;
         this.module = null;
+        this.requiredPermissions = [];
     }
 
     /**

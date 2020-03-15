@@ -10,8 +10,10 @@ class PingCommand extends Command {
         this.aliases = ["pong"];
         this.info = {
             desc: "Check the WebSocket ping",
-            usage: "ping"
+            usage: "ping",
+            example: "ping"
         };
+        this.requiredPermissions = [];
     }
 
     /**

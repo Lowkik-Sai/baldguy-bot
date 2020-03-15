@@ -11,8 +11,10 @@ class StatsCommand extends Command {
         this.aliases = ['statistic', 'stat'];
         this.info = {
             desc: "Show my statistic",
-            usage: "stats"
+            usage: "stats",
+            example: "stats"
         };
+        this.requiredPermissions = [];
     }
 
     /**
@@ -49,7 +51,7 @@ Bot Uptime    : ${client.util.parseDur(client.uptime)}
 ${uptime !== "" ? `Server Uptime : ${uptime.slice(3)}` : ""}
 \`\`\`
             `)
-            .addField("👑 Owner Of This Bot", `
+            .addField("👑 Developer Of This Bot", `
 \`\`\`css
 ${owner.map(o => `${o.tag} (${o.id})`).join("\n")}
 \`\`\`

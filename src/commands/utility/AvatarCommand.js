@@ -11,8 +11,10 @@ class AvatarCommand extends Command {
         this.aliases = ["pfp"];
         this.info = {
             desc: "Shows a user profile picture",
-            usage: "avatar [user]"
+            usage: "avatar [user]",
+            example: "avatar Clyde"
         };
+        this.requiredPermissions = [];
     }
 
     /**

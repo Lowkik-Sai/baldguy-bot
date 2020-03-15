@@ -4,6 +4,7 @@ Structures.extend('Guild', Guild => {
     class ExtendedGuild extends Guild {
         constructor(client, data) {
             super(client, data);
+            this.prefix = require('../config.json').prefix;
             this.fetchMember = (name) => {
                 const regex = new RegExp('^(?:<@​&?)?([0-9]+)>?$');
                 if (!name || name === undefined) return undefined;
