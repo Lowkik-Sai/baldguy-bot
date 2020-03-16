@@ -1,0 +1,50 @@
+{
+  "name": "baldguy-bot",
+  "version": "1.0.0",
+  "description": "Zealcord public Discord Bot contribution projects",
+  "main": "dist/index.js",
+  "scripts": {
+    "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js)\"",
+    "test": "npm run lint",
+    "build": "npm install && npm run test && tsc",
+    "clean": "rm -rf dist",
+    "start": "node dist/index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zealcordNation/baldguy-bot.git"
+  },
+  "keywords": [
+    "zealcord",
+    "discord.js",
+    "javascript"
+  ],
+  "author": "Zealcord",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/zealcordNation/baldguy-bot/issues"
+  },
+  "homepage": "https://github.com/zealcordNation/baldguy-bot#readme",
+  "dependencies": {
+    "discord.js": "github:discordjs/discord.js",
+    "express": "^4.17.1",
+    "superagent": "^5.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^13.9.1",
+    "@types/superagent": "^4.1.7",
+    "@typescript-eslint/eslint-plugin": "^2.23.0",
+    "@typescript-eslint/eslint-plugin-tslint": "^2.23.0",
+    "@typescript-eslint/parser": "^2.23.0",
+    "eslint": "^6.8.0",
+    "typescript": "^3.8.3"
+  },
+  "optionalDependencies": {
+    "dotenv": "^8.2.0",
+    "@discordjs/opus": "^0.1.0",
+    "bufferutil": "^4.0.1",
+    "erlpack": "github:discordapp/erlpack",
+    "utf-8-validate": "^5.0.2",
+    "zlib-sync": "^0.1.6"
+  }
+}
