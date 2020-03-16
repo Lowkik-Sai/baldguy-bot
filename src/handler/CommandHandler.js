@@ -104,7 +104,8 @@ class CommandHandler {
         message.channel.send(embed);
         return undefined;
     }
-    clientPermissionError() {
+    
+    clientPermissionError(message, permission, commandName) {
         const embed = new MessageEmbed()
         .setAuthor(`I don't have permission${typeof permission === "object" ? "s" : ""} to execute this command,`, this.client.util.getAvatar(this.client.user))
         .setColor("#FF0000")
