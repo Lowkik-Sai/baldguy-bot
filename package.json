@@ -37,6 +37,9 @@
     "@typescript-eslint/eslint-plugin-tslint": "^2.23.0",
     "@typescript-eslint/parser": "^2.23.0",
     "eslint": "^6.8.0",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.8",
+    "tslint": "^6.1.0",
     "typescript": "^3.8.3"
   },
   "optionalDependencies": {
@@ -46,5 +49,20 @@
     "erlpack": "github:discordapp/erlpack",
     "utf-8-validate": "^5.0.2",
     "zlib-sync": "^0.1.6"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,json,md}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.ts": [
+      "eslint --fix",
+      "git add"
+    ]
   }
 }
