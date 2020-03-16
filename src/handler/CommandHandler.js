@@ -109,7 +109,7 @@ class CommandHandler {
         const embed = new MessageEmbed()
         .setAuthor(`I don't have permission${typeof permission === "object" ? "s" : ""} to execute this command,`, this.client.util.getAvatar(this.client.user))
         .setColor("#FF0000")
-        .setThumbnail(this.client.util.getGuildIcon(guild))
+        .setThumbnail(this.client.util.getGuildIcon(message.guild))
         .addFields({
             name: "❓ **Why?**",
             value: `You're trying to run **${commandName}** command, but I (the bot) don't have the required permission${typeof permission === "object" ? "s" : ""} to do that.`
