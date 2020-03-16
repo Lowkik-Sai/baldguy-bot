@@ -4,7 +4,7 @@ const Command = require("../../structures/BaseCommand");
 /**
  * @extends {Command}
  */
-class ExecCommand {
+class ExecCommand extends Command {
     constructor() {
         this.name = "exec";
         this.aliases = ['$', 'execute'];
