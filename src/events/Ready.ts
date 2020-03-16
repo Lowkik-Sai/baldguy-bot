@@ -8,7 +8,7 @@ export default class ReadyEvent implements EventComponent {
     constructor(client) {
         this.client = client;
         this.name = "ready";
-        this.exec = () => {
+        this.exec = (): void => {
             console.log(`Logged in as ${client.user.tag}`);
         };
     }

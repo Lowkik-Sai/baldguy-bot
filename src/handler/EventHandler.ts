@@ -7,9 +7,9 @@ import { EventComponent } from "../typings/Event";
  */
 export default class EventHandler {
     /**
-     * @param {import("./BaldClient")} client
-     * @param {String} path
-     */
+   * @param {import("./BaldClient")} client
+   * @param {String} path
+   */
     private client: BaldClient;
     private path: string;
     constructor(client, path) {
@@ -17,11 +17,13 @@ export default class EventHandler {
         this.path = path;
     }
 
-    build() {
+    build(): void {
         readdir(this.path, (err: any, files) => {
             if (err) throw Error(err);
             for (const file of files) {
-                const event: EventComponent = new (require(`${this.path}/${file}`)).default(this.client);
+                const event: EventComponent = new (require(`${this.path}/${file}`)).default(
+                    this.client
+                );
                 this.client.on(event.name, event.exec);
                 console.info(`${file} events has loaded!`);
             }

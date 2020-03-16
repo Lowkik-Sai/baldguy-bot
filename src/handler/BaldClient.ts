@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Client } from "discord.js";
 import { resolve } from "path";
 import { config } from "dotenv";
@@ -29,13 +30,22 @@ export default class BaldClient extends Client {
         this.util = new Util(this);
         this.config = Config;
         this.request = request;
-        this.eventHandler = new EventHandler(this, resolve(__dirname, "..", "events"));
-        this.commandHandler = new CommandHandler(this, resolve(__dirname, "..", "commands"));
+        this.eventHandler = new EventHandler(
+            this,
+            resolve(__dirname, "..", "events")
+        );
+        this.commandHandler = new CommandHandler(
+            this,
+            resolve(__dirname, "..", "commands")
+        );
     }
 
-    public build() {
+    public build(): void {
         config();
-        this.login(process.env.TOKEN).catch(e => { console.error(e); process.exit(1) });
+        this.login(process.env.TOKEN).catch(e => {
+            console.error(e);
+            process.exit(1);
+        });
         this.eventHandler.build();
         this.commandHandler.build();
     }

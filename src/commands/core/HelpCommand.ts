@@ -1,8 +1,8 @@
 import { MessageEmbed } from "discord.js";
+import { CommandComponent } from "../../typings/Command";
 import { Message } from "../../typings/Message";
 import Command from "../../structures/BaseCommand";
 import BaldClient from "../../handler/BaldClient";
-import { CommandComponent } from "../../typings/Command";
 
 export default class HelpCommand extends Command {
     constructor() {
@@ -17,7 +17,7 @@ export default class HelpCommand extends Command {
         };
     }
 
-    exec(client: BaldClient, message: Message, args: string[]) {
+    exec(client: BaldClient, message: Message, args: string[]): any {
         if (!args[0]) {
             const { prefix } = client.config;
             const modules = client.commandHandler.modules.array();
@@ -42,7 +42,8 @@ export default class HelpCommand extends Command {
                         .join(", ")
                 );
             }
-            return message.channel.send(embed);
+            message.channel.send(embed);
+            return message;
         } else {
             const cmd = args[0];
             if (
@@ -104,7 +105,8 @@ export default class HelpCommand extends Command {
                     .setFooter(
                         "Don't include <> or [], it's mean <> is required and [] is optional"
                     );
-                return message.channel.send(embed);
+                message.channel.send(embed);
+                return message;
             }
 
             if (
@@ -117,12 +119,13 @@ export default class HelpCommand extends Command {
                     .setDescription(
                         `Command with name or aliases \`${cmd}\` doesn't exists. Perhaps typo?`
                     );
-                return message.channel.send(embed);
+                message.channel.send(embed);
+                return message;
             }
         }
     }
 
-    private toTitleCase(text: string) {
+    private toTitleCase(text: string): string {
         let newstr: string[] | string = text.split(" ");
         for (let i = 0; i < newstr.length; i++) {
             if (newstr[i] === "") continue;

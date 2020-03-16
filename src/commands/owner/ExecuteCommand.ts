@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import { exec } from "child_process";
 import Command from "../../structures/BaseCommand";
 import BaldClient from "../../handler/BaldClient";
@@ -19,9 +20,15 @@ export default class ExecuteCommand extends Command {
         this.requiredPermissions = [];
     }
 
-    async exec(client: BaldClient, message: Message, args: string[]) {
-        if (!args.join(" "))
-            return message.argsMissing(message, "No command provided!", this);
+    async exec(
+        client: BaldClient,
+        message: Message,
+        args: string[]
+    ): Promise<Message | undefined> {
+        if (!args.join(" ")) {
+            message.argsMissing(message, "No command provided!", this);
+            return undefined;
+        }
         const m = await message.channel.send(`❯_ ${args.join(" ")}`);
         exec(args.join(" "), async (e, stdout, stderr) => {
             if (e) return m.edit(`\`\`\`js\n${e.message}\`\`\``);
@@ -41,7 +48,7 @@ export default class ExecuteCommand extends Command {
         });
     }
 
-    private paginate(text, limit?: number) {
+    private paginate(text, limit?: number): string[] {
         limit = limit ? limit : 2000;
         const lines = text.trim().split("\n");
         const pages: string[] = [];

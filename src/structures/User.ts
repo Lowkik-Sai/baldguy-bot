@@ -1,4 +1,5 @@
-import { Structures} from "discord.js";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { Structures } from "discord.js";
 import { User } from "../typings/User";
 import BaldClient from "../handler/BaldClient";
 
@@ -14,4 +15,4 @@ Structures.extend("User", DiscordUser => {
     }
 
     return ExtendedUser;
-})
+});

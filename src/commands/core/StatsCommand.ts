@@ -21,7 +21,7 @@ export default class StatsCommand extends Command {
         };
     }
 
-    async exec(client: BaldClient, message: Message, args: string[]) {
+    exec(client: BaldClient, message: Message): any {
         const owner: any = [];
         exec("uptime -p", (_, out, err) => {
             client.config.owners.forEach(own => {

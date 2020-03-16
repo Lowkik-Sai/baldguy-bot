@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { CommandComponent } from "../typings/Command";
 import BaldClient from "../handler/BaldClient";
 import { Message } from "../typings/Message";
 
 export default class Command implements CommandComponent {
     public name: CommandComponent["name"];
-    public aliases: CommandComponent["aliases"];;
+    public aliases: CommandComponent["aliases"];
     public cooldown: CommandComponent["cooldown"];
     public guildOnly: CommandComponent["guildOnly"];
     public ownerOnly: CommandComponent["ownerOnly"];
@@ -28,6 +29,7 @@ export default class Command implements CommandComponent {
         this.module = null;
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     exec(client: BaldClient, message: Message, args: string[]): any {}
 
     reload(client: BaldClient): CommandComponent | void {
@@ -41,7 +43,8 @@ export default class Command implements CommandComponent {
         client.commandHandler.commands.get(this.name)!.info = newCMD.info;
         client.commandHandler.commands.get(this.name)!.path = newCMD.path;
         client.commandHandler.commands.get(this.name)!.module = newCMD.module;
-        client.commandHandler.commands.get(this.name)!.requiredPermissions = newCMD.requiredPermissions;
+        client.commandHandler.commands.get(this.name)!.requiredPermissions =
+      newCMD.requiredPermissions;
         client.commandHandler.commands.get(this.name)!.exec = newCMD.exec;
         return client.commandHandler.commands.get(this.name);
     }

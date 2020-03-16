@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import Command from "../../structures/BaseCommand";
 import BaldClient from "../../handler/BaldClient";
 import { Message } from "../../typings/Message";
@@ -15,7 +16,7 @@ export default class PingCommand extends Command {
         this.requiredPermissions = [];
     }
 
-    exec(client: BaldClient, message: Message, args: string[]) {
+    exec(client: BaldClient, message: Message, args: string[]): any {
         message.channel.send(`PONG! \`${client.ws.ping}ms\``);
     }
 }

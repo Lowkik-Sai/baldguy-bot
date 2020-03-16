@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-eval */
 import { MessageEmbed } from "discord.js";
 import { Message } from "../../typings/Message";
 import Command from "../../structures/BaseCommand";
@@ -19,7 +21,11 @@ export default class EvalCommand extends Command {
         };
     }
 
-    async exec(client: BaldClient, message: Message, args: string[]) {
+    async exec(
+        client: BaldClient,
+        message: Message,
+        args: string[]
+    ): Promise<void | Message | undefined> {
         const runnedtimestamp = message.createdTimestamp;
         const msg = message;
         const bot = client;
@@ -28,7 +34,10 @@ export default class EvalCommand extends Command {
 
         try {
             const code = args.join(" ");
-            if (!code) return message.argsMissing(message, "No code provided!", this);
+            if (!code) {
+                message.argsMissing(message, "No code provided!", this);
+                return;
+            }
             let evaled;
 
             if (message.flag.includes("async"))
@@ -89,7 +98,7 @@ export default class EvalCommand extends Command {
         message.channel.send(embed);
     }
 
-    private clean(text: string | any) {
+    private clean(text: string | any): string | any {
         if (typeof text === "string")
             return text
                 .replace(/`/g, "`" + String.fromCharCode(8203))
@@ -97,7 +106,7 @@ export default class EvalCommand extends Command {
         else return text;
     }
 
-    private validateURL(str: string) {
+    private validateURL(str: string): boolean {
         const pattern = new RegExp(
             "^(https?:\\/\\/)?" + // protocol
       "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // domain name

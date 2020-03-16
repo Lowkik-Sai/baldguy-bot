@@ -3,7 +3,7 @@ import { Message } from "./Message";
 import { PermissionString } from "discord.js";
 
 export interface CommandComponent {
-    exec: (client: BaldClient, message: Message, args: string[]) => Promise<void | Message | Message[]>;
+    exec: (client: BaldClient, message: Message, args: string[]) => any;
     name: string | any;
     aliases: string[];
     cooldown: number;
@@ -16,5 +16,5 @@ export interface CommandComponent {
         desc: string | any;
         usage: string | any;
         example: string | any;
-    }
+    };
 }
