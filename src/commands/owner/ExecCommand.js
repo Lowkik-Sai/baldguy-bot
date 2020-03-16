@@ -6,6 +6,7 @@ const Command = require("../../structures/BaseCommand");
  */
 class ExecCommand extends Command {
     constructor() {
+        super();
         this.name = "exec";
         this.aliases = ['$', 'execute'];
         this.cooldown = 2;
