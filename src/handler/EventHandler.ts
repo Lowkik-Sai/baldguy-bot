@@ -30,5 +30,3 @@ export default class EventHandler {
         });
     }
 }
-
-module.exports = EventHandler;
