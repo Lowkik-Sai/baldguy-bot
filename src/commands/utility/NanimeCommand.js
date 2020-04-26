@@ -63,7 +63,7 @@ class NanimeCommand extends Command {
             });
 
             imageElement.each((i, element) => {
-                const imageText = $(element).attr('src');
+                const imageText = $(element).attr("src");
                 images.push(imageText);
             });
 
