@@ -31,7 +31,7 @@ class Command {
      */
     reload(client) {
         delete require.cache[require.resolve(`${this.path}`)];
-        const newCMD = new (require(this.path))();
+        const newCMD = new(require(this.path))();
         client.commandHandler.commands.get(this.name).name = newCMD.name;
         client.commandHandler.commands.get(this.name).aliases = newCMD.aliases;
         client.commandHandler.commands.get(this.name).cooldown = newCMD.cooldown;

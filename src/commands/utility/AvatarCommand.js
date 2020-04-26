@@ -8,7 +8,7 @@ class AvatarCommand extends Command {
     constructor() {
         super();
         this.name = "avatar";
-        this.aliases = ["pfp"];
+        this.aliases = ["ava", "pfp", "pp"];
         this.info = {
             desc: "Shows a user profile picture",
             usage: "avatar [user]",
@@ -25,13 +25,13 @@ class AvatarCommand extends Command {
     async exec(client, message, args) {
         const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.fetchMember(args.join(" ")) || message.member;
         const embed = new MessageEmbed()
-        .setAuthor(`${member.user.username}'s Avatar`, member.user.displayAvatar)
-        .setColor("RANDOM")
-        .setImage(member.user.displayAvatar)
-        .setFooter(`• Replying to: ${message.author.tag}`, message.author.displayAvatar)
-        .setTimestamp();
+            .setAuthor(`${member.user.username}'s Avatar`, member.user.displayAvatar)
+            .setColor("RANDOM")
+            .setImage(member.user.displayAvatar)
+            .setFooter(`• Replying to: ${message.author.tag}`, message.author.displayAvatar)
+            .setTimestamp();
         message.channel.send(embed);
-}
-}
+    }
+};
 
 module.exports = AvatarCommand;

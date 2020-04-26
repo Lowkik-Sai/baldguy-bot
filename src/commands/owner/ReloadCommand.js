@@ -44,8 +44,8 @@ class ReloadCommand extends Command {
             if (!client.commandHandler.modules.has(category)) return client.util.argsMissing(message, "No such category called: " + category + ".", this);
             const commands = client.commandHandler.modules.get(category).keyArray();
             const embed = new MessageEmbed()
-            .setColor("#00FF00")
-            .setDescription(`Reloading ${category} category...`);
+                .setColor("#00FF00")
+                .setDescription(`Reloading ${category} category...`);
             const MSG = await message.channel.send(embed);
             commands.forEach(cmd => {
                 client.commandHandler.commands.get(cmd).reload(client);
@@ -60,8 +60,8 @@ class ReloadCommand extends Command {
             if (client.commandHandler.commands.has(command) && client.commandHandler.commands.find(c => c.aliases.includes(command))) return this.client.util.argsMissing(message, "No such command called: " + command + ".", this.help);
             if (client.commandHandler.commands.find(c => c.aliases.includes(command))) command = client.commandHandler.commands.find(c => c.aliases.includes(command));
             const embed = new MessageEmbed()
-            .setColor("#00FF00")
-            .setDescription(`Reloading ${command} command...`);
+                .setColor("#00FF00")
+                .setDescription(`Reloading ${command} command...`);
             const MSG = await message.channel.send(embed);
             client.commandHandler.commands.get(command).reload(client);
             embed.setDescription(`${command} command reloaded.`);
@@ -69,6 +69,6 @@ class ReloadCommand extends Command {
         }
         return message;
     }
-}
+};
 
 module.exports = ReloadCommand;

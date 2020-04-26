@@ -71,7 +71,9 @@ class CommandHandler {
                 let requiredPermissions = "";
                 if (command.requiredPermissions.length === 1) {
                     requiredPermissions = command.requiredPermissions[0];
-                } else { requiredPermissions = command.requiredPermissions; }
+                } else {
+                    requiredPermissions = command.requiredPermissions;
+                }
                 if (!message.member.permissions.has(requiredPermissions)) {
                     return this.permissionError(message, requiredPermissions, command.name);
                 }
@@ -89,36 +91,36 @@ class CommandHandler {
 
     permissionError(message, permission, commandName) {
         const embed = new MessageEmbed()
-        .setAuthor(`You don't have permission${typeof permission === "object" ? "s" : ""} to execute this command`, this.client.util.getAvatar(this.client.user))
-        .setColor("#FF0000")
-        .setThumbnail(this.client.util.getGuildIcon(message.guild))
-        .addFields({
-            name: "❓ **Why?**",
-            value: `You're trying to run **${commandName}** command, but you don't have the required permission${typeof permission === "object" ? "s" : ""} to do that.`
-        }, {
-            name: `ℹ **Required Permission${typeof permission === "object" ? "s" : ""}**`,
-            value: typeof permission === "object" ? permission.map((p) => `\`${p}\``).join(", ") : permission
-        })
-        .setTimestamp()
-        .setFooter(`${message.author.username}@${message.guild.name}`, message.author.displayAvatar);
+            .setAuthor(`You don't have permission${typeof permission === "object" ? "s" : ""} to execute this command`, this.client.util.getAvatar(this.client.user))
+            .setColor("#FF0000")
+            .setThumbnail(this.client.util.getGuildIcon(message.guild))
+            .addFields({
+                name: "❓ **Why?**",
+                value: `You're trying to run **${commandName}** command, but you don't have the required permission${typeof permission === "object" ? "s" : ""} to do that.`
+            }, {
+                name: `ℹ **Required Permission${typeof permission === "object" ? "s" : ""}**`,
+                value: typeof permission === "object" ? permission.map((p) => `\`${p}\``).join(", ") : permission
+            })
+            .setTimestamp()
+            .setFooter(`${message.author.username}@${message.guild.name}`, message.author.displayAvatar);
         message.channel.send(embed);
         return undefined;
     }
-    
+
     clientPermissionError(message, permission, commandName) {
         const embed = new MessageEmbed()
-        .setAuthor(`I don't have permission${typeof permission === "object" ? "s" : ""} to execute this command,`, this.client.util.getAvatar(this.client.user))
-        .setColor("#FF0000")
-        .setThumbnail(this.client.util.getGuildIcon(message.guild))
-        .addFields({
-            name: "❓ **Why?**",
-            value: `You're trying to run **${commandName}** command, but I (the bot) don't have the required permission${typeof permission === "object" ? "s" : ""} to do that.`
-        }, {
-            name: `ℹ **Required Permission${typeof permission === "object" ? "s" : ""}**`,
-            value: typeof permission === "object" ? permission.map((p) => `\`${p}\``).join(", ") : permission
-        })
-        .setTimestamp()
-        .setFooter(`${message.author.username}@${message.guild.name}`, message.author.displayAvatar);
+            .setAuthor(`I don't have permission${typeof permission === "object" ? "s" : ""} to execute this command,`, this.client.util.getAvatar(this.client.user))
+            .setColor("#FF0000")
+            .setThumbnail(this.client.util.getGuildIcon(message.guild))
+            .addFields({
+                name: "❓ **Why?**",
+                value: `You're trying to run **${commandName}** command, but I (the bot) don't have the required permission${typeof permission === "object" ? "s" : ""} to do that.`
+            }, {
+                name: `ℹ **Required Permission${typeof permission === "object" ? "s" : ""}**`,
+                value: typeof permission === "object" ? permission.map((p) => `\`${p}\``).join(", ") : permission
+            })
+            .setTimestamp()
+            .setFooter(`${message.author.username}@${message.guild.name}`, message.author.displayAvatar);
         message.channel.send(embed);
         return undefined;
     }

@@ -1,25 +1,25 @@
-const Discord = require('discord.js');
+const Discord = require("discord.js");
 
 class Util {
-    constructor(client) { 
+    constructor(client) {
         this.getAvatar = (user) => {
-            let isGif = client.users.resolve(user).displayAvatarURL().split('.');
+            let isGif = client.users.resolve(user).displayAvatarURL().split(".");
             isGif = isGif[isGif.length - 1] === "gif";
-            return client.users.resolve(user).displayAvatarURL({ format: isGif ? 'gif' : 'png' });
+            return client.users.resolve(user).displayAvatarURL({ format: isGif ? "gif" : "png" });
         };
 
         this.getGuildIcon = (guild) => {
             if (guild.iconURL === null) return guild.iconURL();
             let isGif = guild.iconURL().split(".");
             isGif = isGif[isGif.length - 1] === "gif";
-            return guild.iconURL({ format: isGif ? 'gif' : 'png' });
+            return guild.iconURL({ format: isGif ? "gif" : "png" });
         };
 
         this.bytesToSize = (bytes) => {
-            const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
-            if (bytes == 0) return '0 Byte';
+            const sizes = ["Bytes", "KB", "MB", "GB", "TB"];
+            if (bytes == 0) return "0 Byte";
             const i = Math.floor(Math.log(bytes) / Math.log(1024));
-            return Math.round(bytes / Math.pow(1024, i)) + ' ' + sizes[i];
+            return Math.round(bytes / Math.pow(1024, i)) + " " + sizes[i];
         };
 
         this.parseDur = (ms) => {

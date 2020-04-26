@@ -28,10 +28,7 @@ class EvalCommand extends Command {
         const msg = message;
         const bot = client;
 
-        const {
-            args,
-            flags
-        } = this.parseQuery(query);
+        const { args, flags } = this.parseQuery(query);
 
         const embed = new MessageEmbed();
 
@@ -55,9 +52,7 @@ class EvalCommand extends Command {
             let result;
             if (output.length > 2000) {
                 const {
-                    body: {
-                        key
-                    }
+                    body: { key }
                 } = await client.request.post("https://bin.zealcord.xyz/documents").send(output);
                 result = `https://bin.zealcord.xyz/${key}`;
             } else result = output;
@@ -77,9 +72,7 @@ class EvalCommand extends Command {
             let result;
             if (error.length > 2000) {
                 const {
-                    body: {
-                        key
-                    }
+                    body: { key }
                 } = await client.request.post("https://bin.zealcord.xyz/documents").send(error);
                 result = `https://bin.zealcord.xyz/${key}`;
             } else result = error;
@@ -132,6 +125,6 @@ class EvalCommand extends Command {
             '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
         return !!pattern.test(str);
     }
-}
+};
 
 module.exports = EvalCommand;

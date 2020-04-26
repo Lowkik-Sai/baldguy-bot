@@ -6,8 +6,7 @@
     },
     "parserOptions": {
         "ecmaVersion": 2017,
-        "ecmaFeatures": {
-        }     
+        "ecmaFeatures": {}
     },
     "rules": {
         "no-console": "off",

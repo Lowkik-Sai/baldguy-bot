@@ -26,7 +26,7 @@ This Bot dedicated for Open Source of our community. Written in [Discord.JS](htt
 
 ### Required Module/Package
 ```
-@discordjs/opus@0.1.0,
+@discordjs/opus@0.2.1,
 bufferutil@4.0.1,
 discord.js@12.0.1,
 dotenv@8.2.0,

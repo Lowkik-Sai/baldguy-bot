@@ -22,6 +22,6 @@ class PingCommand extends Command {
     exec(client, message, args) {
         message.channel.send(`PONG! \`${client.ws.ping}ms\``);
     }
-}
+};
 
 module.exports = PingCommand;

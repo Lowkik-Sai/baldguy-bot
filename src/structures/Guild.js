@@ -1,14 +1,14 @@
-const { Structures } = require('discord.js');
+const { Structures } = require("discord.js");
 
-Structures.extend('Guild', Guild => {
+Structures.extend("Guild", Guild => {
     class ExtendedGuild extends Guild {
         constructor(client, data) {
             super(client, data);
-            this.prefix = require('../config.json').prefix;
+            this.prefix = require("../config.json").prefix;
             this.fetchMember = (name) => {
-                const regex = new RegExp('^(?:<@​&?)?([0-9]+)>?$');
+                const regex = new RegExp("^(?:<@​&?)?([0-9]+)>?$");
                 if (!name || name === undefined) return undefined;
-                if (regex.test(name)) name = name.replace(regex, '$1');
+                if (regex.test(name)) name = name.replace(regex, "$1");
                 const member = this.members.cache.filter(r => r.displayName.toLowerCase().includes(name && name.toLowerCase()));
                 if (member) return member.first();
                 else return undefined;

@@ -1,4 +1,4 @@
-const { exec } = require('child_process');
+const { exec } = require("child_process");
 const Command = require("../../structures/BaseCommand");
 
 /**
@@ -8,7 +8,7 @@ class ExecCommand extends Command {
     constructor() {
         super();
         this.name = "exec";
-        this.aliases = ['$', 'execute'];
+        this.aliases = ["execute", "$"];
         this.cooldown = 2;
         this.guildOnly = false;
         this.ownerOnly = true;
@@ -27,7 +27,7 @@ class ExecCommand extends Command {
      */
     async exec(client, message, args) {
         if (!args.join(" ")) return message.argsMissing(message, "No command provided!", this);
-        const m  = await message.channel.send(`❯_ ${  args.join(' ')}`);
+        const m = await message.channel.send(`❯_ ${  args.join(" ")}`);
         exec(args.join(" "), async (e, stdout, stderr) => {
             if (e) return m.edit(`\`\`\`js\n${e.message}\`\`\``);
             if (!stderr && !stdout) return m.edit("Executed without result.");
@@ -45,20 +45,20 @@ class ExecCommand extends Command {
             }
         });
 
-        function paginate (text, limit = 2000) {
+        function paginate(text, limit = 2000) {
             const lines = text.trim().split('\n');
             const pages = [];
-            let chunk = '';
-    
+            let chunk = "";
+
             for (const line of lines) {
                 if (chunk.length + line.length > limit && chunk.length > 0) {
                     pages.push(chunk);
-                    chunk = '';
+                    chunk = "";
                 }
-    
+
                 if (line.length > limit) {
                     const lineChunks = line.length / limit;
-    
+
                     for (let i = 0; i < lineChunks; i++) {
                         const start = i * limit;
                         const end = start + limit;
@@ -68,7 +68,7 @@ class ExecCommand extends Command {
                     chunk += `${line}\n`;
                 }
             }
-    
+
             if (chunk.length > 0) {
                 pages.push(chunk);
             }
@@ -76,6 +76,6 @@ class ExecCommand extends Command {
             return pages;
         }
     }
-}
+};
 
 module.exports = ExecCommand;

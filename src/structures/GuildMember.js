@@ -1,6 +1,6 @@
-const { Structures } = require('discord.js');
+const { Structures } = require("discord.js");
 
-Structures.extend('GuildMember', GuildMember => {
+Structures.extend("GuildMember", GuildMember => {
     class ExtendedMember extends GuildMember {
         constructor(client, data, guild) {
             super(client, data, guild);

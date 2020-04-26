@@ -5,7 +5,11 @@ const client = new BaldClient({
     fetchAllMembers: false,
     presence: {
         status: "dnd",
-        activity: { name: "to Zealcord", url: "https://twitch.tv/zealcord/", type: "STREAMING" }
+        activity: {
+            name: "to Zealcord",
+            url: "https://twitch.tv/zealcord/",
+            type: "STREAMING"
+        }
     }
 });
 

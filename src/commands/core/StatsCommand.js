@@ -8,7 +8,7 @@ class StatsCommand extends Command {
     constructor() {
         super();
         this.name = "stats";
-        this.aliases = ['statistic', 'stat'];
+        this.aliases = ["stat", "statistic", "status"];
         this.info = {
             desc: "Show my statistic"
         };
@@ -24,37 +24,40 @@ class StatsCommand extends Command {
         const owner = [];
         const uptime = "";
         require("child_process").exec("uptime -p", (_, out) => {
-            client.config.owners.forEach(own => { const fetch = client.users.resolve(own); owner.push(fetch); });
+            client.config.owners.forEach(own => {
+                const fetch = client.users.resolve(own);
+                owner.push(fetch);
+            });
             const memory = client.util.bytesToSize(process.memoryUsage().heapUsed);
             const total = client.util.bytesToSize(require("os").totalmem);
             const embed = new MessageEmbed()
-            .setAuthor(`${client.user.tag} Statistic`, client.util.getAvatar(client.user))
-            .setColor("#7289DA")
-            .setThumbnail(client.util.getGuildIcon(client.guilds.cache.get("332877090003091456")))
-            .addField("📊 Information", `
+                .setAuthor(`${client.user.tag} Statistic`, client.util.getAvatar(client.user))
+                .setColor("#7289DA")
+                .setThumbnail(client.util.getGuildIcon(client.guilds.cache.get("332877090003091456")))
+                .addField("📊 Information", `
 \`\`\`
 Servers            : ${client.guilds.cache.size}
 Users              : ${client.users.cache.size}
 Ping               : ${client.ws.ping} ms
 \`\`\`
             `)
-            .addField("⚙ System Information", `
+                .addField("⚙ System Information", `
 \`\`\`
 CPU           : ${require("os").cpus()[0].model}
-CPU Core      : ${require("os").cpus().length}
+Processor     : ${require("os").cpus().length}
 Memory        : ${memory} / ${total}
-Node.js       : ${process.version}
-Discord.js    : v${version}
+Node.JS       : ${process.version}
+Discord.JS    : v${version}
 Bot Uptime    : ${client.util.parseDur(client.uptime)}
 ${uptime !== "" ? `Server Uptime : ${uptime.slice(3)}` : ""}
 \`\`\`
             `)
-            .addField("👑 Developer Of This Bot", `
+                .addField("👑 Developer", `
 \`\`\`css
 ${owner.map(o => `${o.tag} (${o.id})`).join("\n")}
 \`\`\`
             `)
-            .addField("📌 Additional", `
+                .addField("📌 Additional", `
 \`\`\`ini
 [ Thanks For Your Contribute To ZealCord ]
 \`\`\`
@@ -64,11 +67,11 @@ ${owner.map(o => `${o.tag} (${o.id})`).join("\n")}
 [**Instagram**](https://www.instagram.com/zealcord/)
 [**YouTube**](https://www.youtube.com/channel/UCnlD5sWvlxNqKiyE6RWufVw)
             `)
-        .setFooter(`• Message For : ${message.author.tag}`, message.author.displayAvatar)
-        .setTimestamp();
-        message.channel.send(embed);
+                .setFooter(`• Message For: ${message.author.tag}`, message.author.displayAvatar)
+                .setTimestamp();
+            message.channel.send(embed);
         });
     }
-}
+};
 
 module.exports = StatsCommand;
