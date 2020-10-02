@@ -13,5 +13,4 @@ const client = new BaldClient({
     }
 });
 
-client.build();
 client.login(process.env.token);
