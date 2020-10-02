@@ -8,12 +8,6 @@ class Util {
             return client.users.resolve(user).displayAvatarURL({ format: isGif ? "gif" : "png" });
         };
 
-        this.getGuildIcon = (guild) => {
-            if (guild.iconURL === null) return guild.iconURL();
-            let isGif = guild.iconURL().split(".");
-            isGif = isGif[isGif.length - 1] === "gif";
-            return guild.iconURL({ format: isGif ? "gif" : "png" });
-        };
 
         this.bytesToSize = (bytes) => {
             const sizes = ["Bytes", "KB", "MB", "GB", "TB"];
