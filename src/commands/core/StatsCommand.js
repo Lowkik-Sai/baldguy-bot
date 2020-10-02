@@ -33,7 +33,7 @@ class StatsCommand extends Command {
             const embed = new MessageEmbed()
                 .setAuthor(`${client.user.tag} Statistic`, client.util.getAvatar(client.user))
                 .setColor("#7289DA")
-                .setThumbnail(client.util.getGuildIcon(client.guilds.cache.get("332877090003091456")))
+                .setThumbnail(message.guild.iconURL())
                 .addField("📊 Information", `
 \`\`\`
 Servers            : ${client.guilds.cache.size}
